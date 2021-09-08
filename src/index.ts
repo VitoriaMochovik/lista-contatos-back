@@ -7,6 +7,7 @@
 // dotenv.config();
 
 import { app } from "./app";
+import { getAllUsers } from "./endpoints/users/getAllUsers";
 
 // const app: Express = express();
 
@@ -14,7 +15,7 @@ import { app } from "./app";
 // app.use(cors());
 
 
-
+app.get("/contacts", getAllUsers)
 // const server = app.listen(process.env.PORT || 3003, () => {
 //     if (server) {
 //        const address = server.address() as AddressInfo;
