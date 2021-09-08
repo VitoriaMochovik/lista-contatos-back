@@ -13,6 +13,22 @@ export const createUser = async (
 
         const { name, email, telephone_number} = req.body
 
+        if(!name || !email || !telephone_number) {
+            if(!name && !email && !telephone_number){
+                throw new Error("Fill all fields");
+            } else if(!name && !email){
+                throw new Error("Fill in the 'name' and 'email' field");
+            } else if(!name && !telephone_number){
+                throw new Error("Fill in the 'name' and 'telephone_number' field");
+            } else if(!email && !telephone_number){
+                throw new Error("Fill in the 'email' and 'telephone_number' field");
+            } else if(!name){
+                throw new Error("Fill in the 'name' field");
+            } else if(!email){
+                throw new Error("Fill in the 'email' field");
+            }
+        }
+
         const id = Date.now().toString()
 
         const newUser = new User(
