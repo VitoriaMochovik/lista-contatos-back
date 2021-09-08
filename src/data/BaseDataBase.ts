@@ -5,7 +5,7 @@ import users from "./users/users.json"
 config()
 
 export class BaseDataBase {
-
+    
     protected static connection = knex({
         client: "mysql",
         connection: {
