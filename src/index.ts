@@ -7,13 +7,14 @@
 // dotenv.config();
 
 import { app } from "./app";
+import { deleteUser } from "./endpoints/users/deleteUser";
 
 // const app: Express = express();
 
 // app.use(express.json());
 // app.use(cors());
 
-
+app.delete("/contacts/:id", deleteUser)
 
 // const server = app.listen(process.env.PORT || 3003, () => {
 //     if (server) {
