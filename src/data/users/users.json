@@ -1,0 +1,14 @@
+[
+    {
+       "id":1,
+       "name":"Alice",
+       "email":"alice@gmail.com",
+       "telephone_number": "+55 (48) 99686-0091"
+    },
+    {
+       "id":2,
+       "name":"Bob",
+       "email":"bob@gmail.com",
+       "telephone_number":"+55 (48) 99677-0191"
+    }
+ ]

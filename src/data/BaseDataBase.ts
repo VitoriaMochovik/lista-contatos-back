@@ -1,5 +1,6 @@
 import knex from "knex"
 import { config } from "dotenv"
+import users from "./users/users.json"
 
 config()
 
@@ -26,7 +27,7 @@ export class BaseDataBase {
         .connection
         .raw(`
 
-            CREATE TABLE IF NOT EXISTS contact_cist_users (
+            CREATE TABLE IF NOT EXISTS contact_list_users (
                 id VARCHAR(255) PRIMARY KEY,
                 name VARCHAR(255) NOT NULL,
                 email VARCHAR(100) UNIQUE NOT NULL,
@@ -38,4 +39,14 @@ export class BaseDataBase {
             console.log("Table successfully created!")
         })
         .catch(this.printError)
+
+        insertUsers = () => BaseDataBase
+            .connection("contact_list_users")
+            .insert(users)
+            .then(() => { console.log("Users saved!")})
+            .catch(this.printError)
+        
+        closeConnection = () => {
+            BaseDataBase.connection.destroy()
+        }
 }
