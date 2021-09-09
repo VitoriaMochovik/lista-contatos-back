@@ -21,4 +21,6 @@ export class User {
             throw new CustomError(422, `'telephone_number' must be of type 'string'`)
         }
     }
-} 
+
+}
+
