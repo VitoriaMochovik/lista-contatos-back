@@ -12,6 +12,7 @@ export class UserDatabase extends BaseDataBase {
         input.telephone_number
     )
 
+
     createUser = (user: User) => 
         BaseDataBase
             .connection(UserDatabase.table)
@@ -33,3 +34,11 @@ export class UserDatabase extends BaseDataBase {
             .where({id: user.id})
     
 } 
+
+    createUser = (user: User) => {
+        BaseDataBase
+            .connection(UserDatabase.table)
+            .insert(user)
+    }
+}
+
