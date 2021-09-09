@@ -12,6 +12,7 @@ export class UserDatabase extends BaseDataBase {
         input.telephone_number
     )
 
+
     createUser = (user: User) => 
         BaseDataBase
             .connection(UserDatabase.table)
@@ -33,11 +34,13 @@ export class UserDatabase extends BaseDataBase {
             .where({id: user.id})
 
 
+
     deleteUser = (id: string) =>
         BaseDataBase
             .connection(UserDatabase.table)
             .delete()
             .where({ id })
+
     
     getAllUsers = async () => {
         const result = await BaseDataBase
@@ -45,4 +48,17 @@ export class UserDatabase extends BaseDataBase {
         
         return result.map(this.toUser)
     }
-} 
+
+
+
+    
+
+
+    createUser = (user: User) => {
+        BaseDataBase
+            .connection(UserDatabase.table)
+            .insert(user)
+    }
+}
+
+

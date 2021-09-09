@@ -1,18 +1,24 @@
-// import express, {Express} from 'express'
-// import cors from 'cors'
-// import { AddressInfo } from "net";
-// import knex from "knex";
-// import dotenv from "dotenv";
+import { app } from "./app";
 
-// dotenv.config();
+
 
 import { app } from "./app";
 import { getAllUsers } from "./endpoints/users/getAllUsers";
+
+import { deleteUser } from "./endpoints/users/deleteUser";
+
+
+import { updateUser } from "./endpoints/users/updateUser";
+
+
+app.put("/contacts/:id", updateUser)
+
 
 // const app: Express = express();
 
 // app.use(express.json());
 // app.use(cors());
+
 
 
 app.get("/contacts", getAllUsers)
@@ -24,3 +30,14 @@ app.get("/contacts", getAllUsers)
 //        console.error(`Failure upon starting server.`);
 //     }
 // });
+
+app.delete("/contacts/:id", deleteUser)
+
+
+import { createUser } from "./endpoints/users/createUser";
+
+
+
+app.post("/contats", createUser)
+
+

@@ -1,17 +1,23 @@
 import { Request, Response } from "express";
 import { UserDatabase } from "../../data/users/UserDatabase";
-import { User } from '../../entities/User'
+import { User } from "../../entities/User";
+
 import { CustomError } from "../../error/CustomErros";
 
 
-export const createUser = async (
+export const updateUser = async (
     req: Request,
     res: Response
 ) => {
     try {
-        const userDB = new UserDatabase()
+
+        const id = req.params.id
 
         const { name, email, telephone_number} = req.body
+        
+        if(!id) {
+            throw new Error("Fill in the id")
+        }
 
         if(!name || !email || !telephone_number) {
             if(!name && !email && !telephone_number){
@@ -28,8 +34,14 @@ export const createUser = async (
                 throw new Error("Fill in the 'email' field");
             }
         }
+        
+        const result = await new UserDatabase().selectUserById(id)
 
-        const id = Date.now().toString()
+        if(!result) {
+            throw new Error("No contacts found")
+        }
+
+        const userDB = new UserDatabase()
 
         const newUser = new User(
             id,
@@ -38,7 +50,7 @@ export const createUser = async (
             telephone_number
         )
 
-        await userDB.createUser(newUser)
+        await userDB.updateUser(newUser)
 
         res.status(200).send({ contact: newUser})
     } catch (error) {
@@ -51,4 +63,4 @@ export const createUser = async (
                 .status(500)
                 .send("Internal error, contact the support")
     }
-}
+} 
