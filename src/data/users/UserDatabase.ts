@@ -17,7 +17,7 @@ export class UserDatabase extends BaseDataBase {
         BaseDataBase
             .connection(UserDatabase.table)
             .insert(user)
-    
+
 
     selectUserById = async (id: string) => {
         const [result] = await BaseDataBase
@@ -32,8 +32,18 @@ export class UserDatabase extends BaseDataBase {
             .connection(UserDatabase.table)
             .update(user)
             .where({id: user.id})
+
+
     
-} 
+    deleteUser = (id: string) =>
+        BaseDataBase
+            .connection(UserDatabase.table)
+            .delete()
+            .where({ id })
+
+
+    
+
 
     createUser = (user: User) => {
         BaseDataBase

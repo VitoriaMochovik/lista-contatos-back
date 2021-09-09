@@ -19,5 +19,13 @@ Content-Type: application/json
     "telephone_number": "+55 (55) 93214 0041"
 } 
 
-}
+
+###
+
+DELETE http://localhost:3003/contacts/1
+Content-Type: application/json
+
+
+
+
 

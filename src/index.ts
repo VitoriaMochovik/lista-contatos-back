@@ -1,16 +1,27 @@
 import { app } from "./app";
 
+
+import { deleteUser } from "./endpoints/users/deleteUser";
+
+
 import { updateUser } from "./endpoints/users/updateUser";
 
 
 app.put("/contacts/:id", updateUser)
+
 // const app: Express = express();
 
 // app.use(express.json());
 // app.use(cors());
+
+
+app.delete("/contacts/:id", deleteUser)
+
+
 import { createUser } from "./endpoints/users/createUser";
 
 
 
 app.post("/contats", createUser)
+
 
