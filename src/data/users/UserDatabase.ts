@@ -33,12 +33,16 @@ export class UserDatabase extends BaseDataBase {
             .update(user)
             .where({id: user.id})
 
+
     
     deleteUser = (id: string) =>
         BaseDataBase
             .connection(UserDatabase.table)
             .delete()
             .where({ id })
+
+
+    
 
 
     createUser = (user: User) => {
