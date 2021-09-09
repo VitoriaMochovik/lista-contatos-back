@@ -8,6 +8,6 @@ import { createUser } from "./endpoints/users/createUser";
 app.put("/contacts/:id", updateUser)
 app.get("/contacts", getAllUsers)
 app.delete("/contacts/:id", deleteUser)
-app.post("/contats", createUser)
+app.post("/contacts", createUser)
 
 
