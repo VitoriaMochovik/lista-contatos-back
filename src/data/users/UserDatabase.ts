@@ -49,16 +49,6 @@ export class UserDatabase extends BaseDataBase {
         return result.map(this.toUser)
     }
 
-
-
-    
-
-
-    createUser = (user: User) => {
-        BaseDataBase
-            .connection(UserDatabase.table)
-            .insert(user)
-    }
 }
 
 
