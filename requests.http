@@ -5,4 +5,19 @@ Content-Type: application/json
     "name": "Vitoria",
     "email": "vitoria@gmail.com",
     "telephone_number": "+55 (55) 93214 0041"
+
+} 
+
+###
+
+PUT http://localhost:3003/contacts/1
+Content-Type: application/json
+
+{
+    "name": "Vitoria Mochovik",
+    "email": "vitoria@gmail.com",
+    "telephone_number": "+55 (55) 93214 0041"
+} 
+
 }
+

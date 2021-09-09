@@ -12,9 +12,33 @@ export class UserDatabase extends BaseDataBase {
         input.telephone_number
     )
 
+
+    createUser = (user: User) => 
+        BaseDataBase
+            .connection(UserDatabase.table)
+            .insert(user)
+    
+
+    selectUserById = async (id: string) => {
+        const [result] = await BaseDataBase
+            .connection(UserDatabase.table)
+            .where({ id })
+
+        if (result) return this.toUser(result)
+    }
+
+    updateUser = (user: User) => 
+        BaseDataBase
+            .connection(UserDatabase.table)
+            .update(user)
+            .where({id: user.id})
+    
+} 
+
     createUser = (user: User) => {
         BaseDataBase
             .connection(UserDatabase.table)
             .insert(user)
     }
 }
+
