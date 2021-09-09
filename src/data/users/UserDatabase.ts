@@ -34,12 +34,21 @@ export class UserDatabase extends BaseDataBase {
             .where({id: user.id})
 
 
-    
+
     deleteUser = (id: string) =>
         BaseDataBase
             .connection(UserDatabase.table)
             .delete()
             .where({ id })
+
+    
+    getAllUsers = async () => {
+        const result = await BaseDataBase
+            .connection(UserDatabase.table)
+        
+        return result.map(this.toUser)
+    }
+
 
 
     
@@ -51,4 +60,5 @@ export class UserDatabase extends BaseDataBase {
             .insert(user)
     }
 }
+
 
