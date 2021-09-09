@@ -28,7 +28,7 @@ export const deleteUser = async (
         await userDB.deleteUser(id)
 
         res.status(200).send("Contact deleted")
-    } catch (error) {
+    } catch (error: any) {
         if(error instanceof CustomError)
             res 
                 .status(error.statusCode)

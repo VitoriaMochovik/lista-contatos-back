@@ -13,7 +13,7 @@ export const getAllUsers = async (
         const users = await new UserDatabase().getAllUsers()
 
         res.send(users)
-    } catch (error) {
+    } catch (error: any) {
         if (error instanceof CustomError)
             res 
                 .status(error.statusCode)

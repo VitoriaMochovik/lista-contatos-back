@@ -53,7 +53,7 @@ export const updateUser = async (
         await userDB.updateUser(newUser)
 
         res.status(200).send({ contact: newUser})
-    } catch (error) {
+    } catch (error: any) {
         if(error instanceof CustomError)
             res 
                 .status(error.statusCode)

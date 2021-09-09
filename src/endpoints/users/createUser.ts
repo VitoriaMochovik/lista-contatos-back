@@ -41,7 +41,7 @@ export const createUser = async (
         await userDB.createUser(newUser)
 
         res.status(200).send({ contact: newUser})
-    } catch (error) {
+    } catch (error: any) {
         if(error instanceof CustomError)
             res 
                 .status(error.statusCode)
