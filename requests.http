@@ -31,3 +31,6 @@ Content-Type: application/json
 GET http://localhost:3003/contacts
 Content-Type: application/json
 
+
+###
+GET http://localhost:3003/contacts/1631213993829
